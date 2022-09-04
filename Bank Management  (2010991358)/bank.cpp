@@ -5,7 +5,7 @@ using namespace std;
 class customer{
 
 char depositer_name[50];
- long int account_number;
+ long long int account_number;
 char type_of_acc[10];
 long double balance_amount;
 
@@ -29,9 +29,6 @@ cin.getline(type_of_acc,10);
     cout<<endl;
     
     write_detail();
-
-    
-
 }
 
 void write_detail(){
@@ -45,11 +42,38 @@ void write_detail(){
          file<<"\nBalance: "<<" "<<balance_amount;     
 file.close();
 
+}
 
+void allCustomers(){
+	ofstream file;
+   
+    file.open("allcustomers.txt",ios::app);
+    file<<depositer_name<<"          "<<account_number<<"        "<<type_of_acc<<"     "<<balance_amount<<endl;    
+file.close();
 
 
 }
 
+void getList(){
+cout<<"\n\n\t\tACCOUNT HOLDER LIST\n\n";
+	cout<<"====================================================\n";
+	cout<<"Name.             A/c no              Type     Balance\n";
+	cout<<"====================================================\n";
+   fstream file;
+   string myfile;
+   file.open("allcustomers.txt");
+   while (getline (file, myfile)) {
+ 
+  cout<<myfile<<endl;
+   }
+    cout<<"\n------------------------------------------------------";
+  
+  
+  
+  
+    
+  cout<<endl;
+  }
 
 };
 
@@ -59,15 +83,40 @@ file.close();
 
 int main()
 {
+
+  cout<<"Enter the number of accounts added to the system ";
 int x;
   cin>>x;
 customer c[x];
-
-    cout<<"Enter the number of accounts added to the system"<<endl;
+customer cl;
+int cas;
+  do{
    
-    for(int i=0;i<x;i++){
+   
+   cout<<"Press 1 to add new customers"<<endl;
+   cout<<"Press 2 to display all the details of account holders"<<endl;
+   cin>>cas;
+  
+   switch (cas)
+   {
+   case 1:
+   for(int i=0;i<x;i++){
         c[i].addCustomers();
+        c[i].allCustomers();
     }
+    break;
+   case 2:
+  cout<<"Account Holder List"<<endl;
+   cl.getList();
+   break;
+   case 3:
+   return 0;
+   default:
+   cout<<"none"<<endl;
+   }
+  }
+while (true);
+
 
 
 
