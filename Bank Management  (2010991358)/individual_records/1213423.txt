@@ -1,5 +1,0 @@
-
-Account Holder Name:  Anuj Gupta
-Account Number:  1213423
-Account Type:  saving
-Balance:  89000
