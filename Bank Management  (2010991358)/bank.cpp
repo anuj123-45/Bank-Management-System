@@ -4,6 +4,7 @@
 using namespace std;
 vector<long double> balance_amount;
 int indx=0;
+long long int ac_last_entry;
 class customer{
 
 public:
@@ -11,6 +12,7 @@ char depositer_name[50];
  long long int account_number;
 char type_of_acc[10];
 long double balance;
+
 
 
 public:
@@ -24,6 +26,7 @@ cin.getline(depositer_name,50);
     cout<<"Enter the account number ";
 
     cin>>account_number;
+   
   
     cout<<"Enter the type of account ";
 cin.ignore();
@@ -38,7 +41,7 @@ cin.getline(type_of_acc,10);
 }
 
 void write_detail(int &i){
-
+ac_last_entry=account_number;
 	ofstream file;
     string str=to_string(account_number);
     file.open(("individual_records/"+(str)+".txt").c_str());
@@ -89,6 +92,23 @@ void deleteFile(long long int x){
 
 
 }
+
+
+void accountNumberExists(long long a){
+string s=to_string(a);
+ifstream file;
+file.open(("individual_records/"+(s)+".txt").c_str());
+  if(file){
+            cout<<"Account number exists"<<endl;
+  }
+  else {
+    cout<<"Account number not exists"<<endl;
+  }
+  cout<<endl;
+}
+
+
+
 
 };
 
@@ -167,6 +187,8 @@ int cas;
    cout<<"Press 2 to display all the details of account holders"<<endl;
    cout<<"Press 3 to delete the information related to account holder"<<endl;
     cout<<"Press 4 to either deposit or withdraw"<<endl;
+    cout<<"Press 5 display the account number of last entry"<<endl;
+    cout<<"Press 6 to check whether an account exists or not"<<endl;
    cin>>cas;
   
    switch (cas)
@@ -222,7 +244,20 @@ cout<<"Invalid choice"<<endl;
 }
 }
 
-   case 5:
+case 5:
+cout<<endl;
+cout<<"Account number of last entry is "<<ac_last_entry<<endl;
+break;
+
+case 6:
+cout<<endl;
+cout<<"Enter the account number ";
+long long int ac_no;
+cin>>ac_no;
+cl.accountNumberExists(ac_no);
+break;
+
+   case 7:
    return 0;
    default:
    cout<<"none"<<endl;
