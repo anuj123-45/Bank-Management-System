@@ -1,0 +1,6 @@
+
+Account Holder Name:  Jayant Aggarwal
+Account Number:  6767676
+Account Type:  saving
+Balance:  8000
+After Withdrawing Updated Balance:  7300

@@ -1,7 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 #include <fstream>
 using namespace std;
-vector<long double> balance_amount(0,1000);
+vector<long double> balance_amount;
 int indx=0;
 class customer{
 
