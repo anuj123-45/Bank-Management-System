@@ -303,7 +303,6 @@ void Bank::ShowAllAccounts()
  }
 
 }
-
 Bank::~Bank()
 {
  ofstream outfile;
