@@ -77,6 +77,7 @@ int main()
  cout<<"\n\t4 For Withdrawal";
  cout<<"\n\t5 Close an Account";
  cout<<"\n\t6 Show All Accounts";
+  cout<<"\n\t7 To get account number of last entry";
  cout<<"\n\t8 Quit";
  cout<<"\nEnter your choice: ";
  cin>>choice;
@@ -137,14 +138,16 @@ cin>>accountNumber;
 
  break;
  case 6:
+ system("cls");
  b.ShowAllAccounts();
 
  break;
 
  case 7:
- cout<<""<<acc.getLastAccountNumber()<<endl;
+ cout<<"The account number of last entry is "<<acc.getLastAccountNumber()<<endl;
  break;
- case 8: break;
+ case 8: 
+ break;
  default:
  cout<<"\nEnter corret choice";
 exit(0);
